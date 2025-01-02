@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Button Customizer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #181C14;
+            color: #ecf0f1;
+            margin: 0;
+            padding: 0;
+        }
+
+        .menu {
+            display: flex;
+            justify-content: center;
+            background-color: #697565;
+            padding: 10px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        .menu a {
+            color: #ecf0f1;
+            text-decoration: none;
+            padding: 10px 20px;
+            margin: 0 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .menu a:hover {
+            background-color: #B6CBBD;
+            border-radius: 5px;
+        }
+
+        .container {
+            text-align: center;
+            width: 80%;
+            margin: 20px auto;
+        }
+
+        .button-preview {
+            margin: 20px 0;
+            padding: 20px;
+        }
+
+        .button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #ECDFCC;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .button:hover {
+            background-color: #ECDFCC;
+            transform: scale(1.1);
+        }
+
+        .code-box {
+            margin-top: 20px;
+            background-color: #697565;
+            padding: 10px;
+            border-radius: 5px;
+            font-family: monospace;
+        }
+
+        .copy-btn {
+            margin-top: 10px;
+            padding: 8px 16px;
+            background-color: #7E99A3;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            cursor: pointer;
+        }
+
+        .copy-btn:hover {
+            background-color: #4C585B;
+        }
+
+        /*Input*/
+/* From Uiverse.io by WhiteNervosa */ 
+.textInputWrapper {
+  position: relative;
+  width: 180px;
+  margin: 12px 5px;
+  --accent-color: #a3e583;
+}
+
+.textInputWrapper:before {
+  transition: border-bottom-color 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.42);
+}
+
+.textInputWrapper:before,
+.textInputWrapper:after {
+  content: "";
+  left: 0;
+  right: 0;
+  position: absolute;
+  pointer-events: none;
+  bottom: -1px;
+  z-index: 4;
+  width: 100%;
+}
+
+.textInputWrapper:focus-within:before {
+  border-bottom: 1px solid var(--accent-color);
+}
+
+.textInputWrapper:before {
+  transition: border-bottom-color 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.42);
+}
+
+.textInputWrapper:focus-within:before {
+  border-bottom: 1px solid var(--accent-color);
+  transform: scaleX(1);
+}
+
+.textInputWrapper:focus-within:after {
+  border-bottom: 2px solid var(--accent-color);
+  transform: scaleX(1);
+}
+
+.textInputWrapper:after {
+  content: "";
+  transform: scaleX(0);
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1) 0ms;
+  will-change: transform;
+  border-bottom: 2px solid var(--accent-color);
+  border-bottom-color: var(--accent-color);
+}
+
+.textInput::placeholder {
+  transition: opacity 250ms cubic-bezier(0, 0, 0.2, 1) 0ms;
+  opacity: 1;
+  user-select: none;
+  color: rgba(255, 255, 255, 0.582);
+}
+
+.textInputWrapper .textInput {
+  border-radius: 5px 5px 0px 0px;
+  box-shadow: 0px 2px 5px rgb(35 35 35 / 30%);
+  max-height: 36px;
+  background-color: #252525;
+  transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition-duration: 200ms;
+  transition-property: background-color;
+  color: #e8e8e8;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 12px;
+  width: 100%;
+  border-left: none;
+  border-bottom: none;
+  border-right: none;
+}
+
+.textInputWrapper .textInput:focus,
+.textInputWrapper .textInput:active {
+  outline: none;
+}
+
+.textInputWrapper:focus-within .textInput,
+.textInputWrapper .textInput:focus,
+.textInputWrapper .textInput:active {
+  background-color: #353535;
+}
+
+.textInputWrapper:focus-within .textInput::placeholder {
+  opacity: 0;
+}
+
+        /*Input*/
+
+
+        .title {
+        font-size: 3.5em;
+        font-weight: bold;
+        text-transform: uppercase;
+        text-align: center;
+        margin-top: 20px;
+        background: linear-gradient(90deg, #1A3636, #40534C, #677D6A);
+        -webkit-background-clip: text;
+        color: transparent;
+        text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.3);
+        animation: glow 3s infinite alternate;
+    }
+
+    @keyframes glow {
+        0% {
+            text-shadow: 0 0 10px #7E99A3, 0 0 20px #3C3D37;
+        }
+        100% {
+            text-shadow: 0 0 20px #ECDFCC, 0 0 40px #CBA35C;
+        }
+    }
+
+    .footer {
+        background-color: #2c3e50;
+        color: #ecf0f1;
+        text-align: center;
+        padding: 20px 0;
+        position: relative;
+        bottom: 0;
+        width: 100%;
+        box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .footer p {
+        margin: 0;
+        font-size: 14px;
+    }
+
+    .footer-links {
+        margin-top: 10px;
+    }
+
+    .footer-links a {
+        color: #9AA6B2;
+        text-decoration: none;
+        margin: 0 10px;
+        font-size: 14px;
+        transition: color 0.3s ease;
+    }
+
+    .footer-links a:hover {
+        color: #2ecc71;
+    }
+    </style>
+</head>
+<body>
+    <!-- Navigation Menu -->
+    <div class="menu">
+        <a href="#home">Home</a>
+        <a href="#customize">Customize Button</a>
+        <a href="#generatedCode">Generated Code</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact Us</a>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container" id="home">
+        <br>
+        <h1 class="title">Button Costemiser</h1>
+<br><br><br>
+
+        <div class="button-preview">
+            <button class="button" id="previewButton">Click Me!</button>
+        </div>
+        <div id="customize">
+            <label for="bgColor">Background Color:</label>
+            <input type="color" id="bgColor" value="#3498db">
+        </div>
+        <br>
+        <div>
+            <label for="borderRadius">Border Radius:</label>
+            <input type="range" id="borderRadius" min="0" max="50" value="5">
+        </div>
+        <br>
+
+        <center>
+            <div class="textInputWrapper">
+                <label for="buttonText">Button Text:</label>
+                <input type="text" id="buttonText" value="Click Me!" placeholder="Enter button text" class="textInput">
+            </div>
+        </center>
+        
+        <br>
+        <div class="code-box" id="generatedCode">
+            <h3>Generated Code:</h3>
+            <pre>
+<button style="background-color: #3498db; border-radius: 5px; padding: 10px 20px; color: white; border: none;">Click Me!</button>
+            </pre>
+            <button class="copy-btn" id="copyButton">Copy Code</button>
+        
+    </div>
+
+    <br><br><br><br>
+    <br><br><br>
+    
+    <br><br><br><br>
+    <br><br><br>
+
+    <footer class="footer">
+        <p>develop by Dinew Yuthmika |© Bottun Maker</p>
+        <div class="footer-links">
+            <a href="#privacy">Privacy Policy</a>
+            <a href="#terms">Terms of Service</a>
+            <a href="#contact">Contact Us</a>
+        </div>
+    </footer>
+
+    <script>
+        const previewButton = document.getElementById("previewButton");
+        const bgColorInput = document.getElementById("bgColor");
+        const borderRadiusInput = document.getElementById("borderRadius");
+        const buttonTextInput = document.getElementById("buttonText");
+        const generatedCode = document.getElementById("generatedCode");
+        const copyButton = document.getElementById("copyButton");
+
+        // Update button preview and generated code
+        function updateButton() {
+            const bgColor = bgColorInput.value;
+            const borderRadius = borderRadiusInput.value;
+            const buttonText = buttonTextInput.value;
+            
+            previewButton.style.backgroundColor = bgColor;
+            previewButton.style.borderRadius = borderRadius + "px";
+            previewButton.textContent = buttonText;
+            
+            generatedCode.querySelector("pre").textContent = `<button style="background-color: ${bgColor}; border-radius: ${borderRadius}px; padding: 10px 20px; color: white; border: none;">${buttonText}</button>`;
+        }
+
+        // Copy the generated code to clipboard
+        function copyCode() {
+            const code = generatedCode.querySelector("pre").textContent;
+            navigator.clipboard.writeText(code).then(() => {
+                alert("Code copied to clipboard!");
+            });
+        }
+
+        // Event Listeners
+        bgColorInput.addEventListener("input", updateButton);
+        borderRadiusInput.addEventListener("input", updateButton);
+        buttonTextInput.addEventListener("input", updateButton);
+        copyButton.addEventListener("click", copyCode);
+
+        // Initial button setup
+        updateButton();
+    </script>
+</body>
+</html>
